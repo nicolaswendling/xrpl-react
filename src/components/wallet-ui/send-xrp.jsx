@@ -1,7 +1,8 @@
 import {useState} from "react"
 import {useBalance, useSendXRP, ReserveRequirement} from "@nice-xrpl/react-xrpl"
+import {Header} from "./header"
 
-export function SendXRP() {
+export function SendXRP({id}) {
   // The useSendXRP hook can be used to send XRP to
   // another account.  This is a transactional hook and
   // requires a wallet.
@@ -9,17 +10,17 @@ export function SendXRP() {
   const balance = useBalance()
 
   const [destinationAddress, setDestinationAddress] = useState("")
-  const [amount, setAmount] = useState(50)
+  const [amount, setAmount] = useState(0)
   const [sending, setSending] = useState(false)
 
   return (
     <>
-      <div className="text-center text-lg mt-4">
-        <label className="" htmlFor="srcAmount">
-          Send <strong className="text-blue-600">{amount}XRP</strong>
+      <Header className="">
+        <label className="" htmlFor={`amount_${id}`}>
+          Send <strong className="text-blue-600 font-mono">{amount}XRP</strong>
         </label>
         &nbsp;
-        <label htmlFor="destinationAddress" className="">
+        <label htmlFor={`destinationAddress_${id}`} className="">
           to{": "}
           {destinationAddress ? (
             <strong className="text-base">{destinationAddress}</strong>
@@ -27,11 +28,11 @@ export function SendXRP() {
             "fill the wallet address"
           )}
         </label>
-      </div>
-      <div className="flex gap-px bg-slate-950 text-blue-50 p-4 rounded-md">
+      </Header>
+      <div className="flex gap-px bg-blue-950 text-blue-50 p-2 my-6 rounded-md">
         <div className="">
           <input
-            id="srcAmount"
+            id={`amount_${id}`}
             className="py-2 px-4 text-blue-950 rounded-l-md  w-full max-w-[200px]"
             value={amount}
             onChange={(e) => setAmount(parseInt(e.currentTarget.value, 10))}
@@ -40,7 +41,7 @@ export function SendXRP() {
         </div>
         <div className=" flex-1">
           <input
-            id="destinationAddress"
+            id={`destinationAddress_${id}`}
             className="py-2 px-4 text-blue-950 w-full"
             placeholder="ex: rHb9CJAWyB4rj91VRWn96DkukG4bwdtyTh"
             value={destinationAddress}
@@ -75,7 +76,7 @@ export function SendXRP() {
         </div>
       </div>
       {sending && (
-        <div className="mt-2 text-center animate-bounce">
+        <div className="mt-2 text-center animate-bounce pt-4 pb-2">
           <span className="bg-blue-600 text-blue-50 rounded-md py-2 px-4">
             Waiting for response...
           </span>

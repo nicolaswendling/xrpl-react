@@ -1,7 +1,5 @@
 import {Networks, useIsConnected, XRPLClient} from "@nice-xrpl/react-xrpl"
 import {CreateSourceWallet} from "./components/create-source-wallet.jsx"
-import {CreateDestinationWallet} from "./components/create-destination-wallet.jsx"
-import {DestinationWallet} from "./components/destination-wallet.jsx"
 import {SourceWallet} from "./components/source-wallet.jsx"
 import {WrapperWallet as Wrapper} from "./components/wallet-ui/wrapper-wallet.jsx"
 
@@ -14,14 +12,14 @@ function MainApp() {
     <div className="font-mono">
       <Wrapper className="mb-4">
         <CreateSourceWallet>
-          <SourceWallet />
+          <SourceWallet id="01" />
         </CreateSourceWallet>
       </Wrapper>
 
       <Wrapper>
-        <CreateDestinationWallet>
-          <DestinationWallet />
-        </CreateDestinationWallet>
+        <CreateSourceWallet>
+          <SourceWallet id="02" />
+        </CreateSourceWallet>
       </Wrapper>
 
       <div className="text-center my-8">

@@ -1,6 +1,6 @@
 export const Header = ({children}) => {
   return (
-    <h2 className="bg-blue-900 text-blue-50 mb-4 rounded-t-md p-2 text-xl text-center">
+    <h2 className="text-blue-950 mb-2 text-center text-xl font-sans">
       {children}
     </h2>
   )
