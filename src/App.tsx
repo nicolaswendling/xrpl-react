@@ -1,9 +1,9 @@
 import {Networks, useIsConnected, XRPLClient} from "@nice-xrpl/react-xrpl"
-import {CreateSourceWallet} from "./components/create-source-wallet"
-import {CreateDestinationWallet} from "./components/create-destination-wallet"
-import {DestinationWallet} from "./components/destination-wallet"
-import {SourceWallet} from "./components/source-wallet"
-import {WrapperWallet as Wrapper} from "./components/wallet-ui/wrapper-wallet"
+import {CreateSourceWallet} from "./components/create-source-wallet.jsx"
+import {CreateDestinationWallet} from "./components/create-destination-wallet.jsx"
+import {DestinationWallet} from "./components/destination-wallet.jsx"
+import {SourceWallet} from "./components/source-wallet.jsx"
+import {WrapperWallet as Wrapper} from "./components/wallet-ui/wrapper-wallet.jsx"
 
 function MainApp() {
   // The useIsConnected hook will let you know

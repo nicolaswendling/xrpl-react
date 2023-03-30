@@ -9,12 +9,12 @@ export function SendXRP() {
   const balance = useBalance()
 
   const [destinationAddress, setDestinationAddress] = useState("")
-  const [amount, setAmount] = useState(48)
+  const [amount, setAmount] = useState(50)
   const [sending, setSending] = useState(false)
 
   return (
     <>
-      <div className="flex gap-px bg-blue-200 p-2 rounded mt-4">
+      <div className="flex gap-px bg-blue-900 text-blue-50 p-2 rounded mt-4">
         <div className="">
           <label className="block" htmlFor="srcAmount">
             I'll send XRP
@@ -42,7 +42,7 @@ export function SendXRP() {
         </div>
         <div className="self-end">
           <button
-            className="py-2 px-4 bg-blue-950 text-white rounded-r-md"
+            className="py-2 px-4 bg-blue-200 text-blue-900 rounded-r-md"
             onClick={async () => {
               setSending(true)
               try {
@@ -50,9 +50,10 @@ export function SendXRP() {
                 console.log("UI: ", result)
               } catch (e) {
                 alert(e)
+              } finally {
+                setSending(false)
+                setAmount(0)
               }
-
-              setSending(false)
             }}
             disabled={
               !amount ||
@@ -65,7 +66,11 @@ export function SendXRP() {
           </button>
         </div>
       </div>
-      {sending && <div>Waiting for response...</div>}
+      {sending && (
+        <div className="bg-blue-900 text-blue-50 p-4 mt-2 text-center rounded-md">
+          Waiting for response...
+        </div>
+      )}
     </>
   )
 }

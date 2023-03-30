@@ -22,7 +22,7 @@ export function CreateSourceWallet({children}) {
           className="p-4 bg-blue-950 text-white rounded w-full"
           onClick={async () => {
             setSending(true)
-            const initialState = await createWallet("1048")
+            const initialState = await createWallet("5750")
 
             setSending(false)
 
