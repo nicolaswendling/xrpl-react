@@ -50,7 +50,7 @@ export function SendXRP() {
         </div>
         <div className="self-end">
           <button
-            className="py-2 px-4 bg-blue-200 text-blue-900 rounded-r-md"
+            className="py-2 px-4 bg-blue-600 text-blue-50 rounded-r-md disabled:bg-slate-300 disabled:text-slate-500"
             onClick={async () => {
               setSending(true)
               try {
@@ -75,8 +75,10 @@ export function SendXRP() {
         </div>
       </div>
       {sending && (
-        <div className="bg-blue-900 text-blue-50 p-4 mt-2 text-center rounded-md">
-          Waiting for response...
+        <div className="mt-2 text-center animate-bounce">
+          <span className="bg-blue-600 text-blue-50 rounded-md py-2 px-4">
+            Waiting for response...
+          </span>
         </div>
       )}
     </>
