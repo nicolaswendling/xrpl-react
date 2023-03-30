@@ -7,7 +7,7 @@ export function WalletInfo() {
 
   return (
     <div className="bg-slate-300 p-2 mb-2 flex gap-2 items-center rounded-md">
-      <span className="font-bold basis-28">Address:</span>
+      <span className="font-bold">Address:</span>
       <div className="flex-1 flex gap-px">
         <input
           className="py-2 px-4 text-blue-950 w-full rounded-l-md"
@@ -21,7 +21,7 @@ export function WalletInfo() {
             navigator.clipboard.writeText(address)
           }}
         >
-          copy
+          Copy
         </button>
       </div>
     </div>
