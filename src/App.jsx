@@ -45,7 +45,7 @@ export default function App() {
           <img
             src="/xrp-logo.webp"
             alt="XRP"
-            className="h-8 block my-4 mx-auto"
+            className="h-8 block mb-2 mx-auto"
           />
           XRP
           <small class="block text-3xl text-blue-50">
