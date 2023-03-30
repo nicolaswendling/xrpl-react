@@ -6,17 +6,17 @@ export function WalletInfo() {
   const address = useWalletAddress()
 
   return (
-    <div className="bg-slate-300 p-2 mb-2 flex gap-2 items-center rounded-md">
+    <div className="flex items-center gap-2 p-2 mb-2 rounded-md bg-slate-300">
       <span className="font-bold">Address:</span>
-      <div className="flex-1 flex gap-px">
+      <div className="flex flex-1 gap-px">
         <input
-          className="py-2 px-4 text-blue-950 w-full rounded-l-md"
+          className="w-full p-4 text-blue-950 rounded-l-md"
           defaultValue={address}
           type="text"
           readOnly={true}
         />
         <button
-          className="py-2 px-4 bg-blue-600 text-blue-50 rounded-r-md disabled:bg-slate-200 disabled:text-slate-400 hover:bg-blue-900 transition-colors"
+          className="flex-shrink-0 px-4 py-2 transition-colors bg-blue-600 basis-28 text-blue-50 rounded-r-md disabled:bg-slate-200 disabled:text-slate-400 hover:bg-blue-900"
           onClick={async () => {
             navigator.clipboard.writeText(address)
           }}

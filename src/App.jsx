@@ -22,8 +22,8 @@ function MainApp() {
         </CreateSourceWallet>
       </Wrapper>
 
-      <div className="text-center my-8">
-        <div className="inline-flex py-2 px-4 bg-blue-600 text-blue-50 rounded-md">
+      <div className="my-8 text-center">
+        <div className="inline-flex px-4 py-2 bg-blue-600 rounded-md text-blue-50">
           Connected to XRPL: {isConnected ? "Yes" : "No"}
         </div>
       </div>
@@ -38,12 +38,12 @@ function MainApp() {
 export default function App() {
   return (
     <>
-      <div className="mb-8 text-center max-w-sm mx-auto">
+      <div className="max-w-sm mx-auto mb-8 text-center">
         <h1 className="text-2xl text-blue-600">
           <img
             src="/xrp-logo.webp"
             alt="XRP"
-            className="h-8 block mb-2 mx-auto"
+            className="block h-8 mx-auto mb-2"
           />
           XRP
           <small className="block text-3xl text-blue-50">
@@ -54,7 +54,7 @@ export default function App() {
       <XRPLClient network={Networks.Testnet}>
         <MainApp />
       </XRPLClient>
-      <div className="text-blue-600 text-sm mt-8 text-center max-w-sm mx-auto">
+      <div className="max-w-sm mx-auto mt-8 text-sm text-center text-blue-600">
         <p className="mt-2">
           Fast and green, the digital asset XRP was built to be the most
           practical cryptocurrency for applications across the financial

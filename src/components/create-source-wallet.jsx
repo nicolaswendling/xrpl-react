@@ -22,9 +22,9 @@ export function CreateSourceWallet({children}) {
 
     setSending(true)
     const initialState = await createWallet(amount.toString())
-    setSending(false)
     if (initialState.wallet.seed) {
       setSeed(initialState.wallet.seed)
+      setSending(false)
     }
   }
 
@@ -37,27 +37,29 @@ export function CreateSourceWallet({children}) {
   // credentials. It enables the use of all
   // transactional hooks and all request hooks.
   return seed ? (
-    <Wallet seed={seed}>{children}</Wallet>
+    <>
+      <Wallet seed={seed}>{children}</Wallet>
+    </>
   ) : (
     <div>
       <form onSubmit={handlerSubmit}>
         <fieldset disabled={sending}>
-          <div className="flex gap-2">
+          <div className="flex gap-0">
             <input
               type="number"
               min={min}
               max={max}
               step={step}
               value={amount}
-              className="p-4 border-blue-950 w-full border-2 rounded-md"
+              className="w-full p-4 border-2 rounded-l-md border-blue-950"
               onChange={handlerAdjustAmount}
             />
             {!sending ? (
-              <button className="p-4 bg-blue-950 text-white rounded w-full hover:bg-blue-900 transition-colors duration-300">
+              <button className="w-full p-4 text-white transition-colors duration-300 rounded-r-md bg-blue-950 hover:bg-blue-900">
                 Create wallet of <Number value={amount} /> XRP
               </button>
             ) : (
-              <div className="p-4 bg-blue-950 text-white rounded w-full inline-flex items-center justify-center">
+              <div className="w-full p-4 text-center text-white transition-colors duration-300 rounded-r-md bg-blue-950">
                 <span className=" animate-pulse">Creating wallet</span>
               </div>
             )}

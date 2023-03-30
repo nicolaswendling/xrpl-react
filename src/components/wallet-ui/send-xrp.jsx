@@ -18,7 +18,7 @@ export function SendXRP({id}) {
       <div className="mt-4 text-center">
         <label className="" htmlFor={`amount_${id}`}>
           Send{" "}
-          <strong className="text-blue-600 font-mono">
+          <strong className="font-mono text-blue-600">
             <Number value={amount} /> XRP
           </strong>
         </label>
@@ -32,29 +32,29 @@ export function SendXRP({id}) {
           )}
         </label>
       </div>
-      <div className="flex gap-px bg-slate-300 text-blue-50 p-2 mb-2 rounded-md">
+      <div className="flex gap-px p-2 mb-2 rounded-md bg-slate-300 text-blue-50">
         <div className="">
           <input
             id={`amount_${id}`}
-            className="py-2 px-4 text-blue-950 rounded-l-md  w-full max-w-[200px]"
+            className="p-4 text-blue-950 rounded-l-md  w-full max-w-[200px]"
             value={amount}
             onChange={(e) => setAmount(parseInt(e.currentTarget.value, 10))}
             type="number"
           />
         </div>
-        <div className=" flex-1">
+        <div className="flex-1 ">
           <input
             id={`destinationAddress_${id}`}
-            className="py-2 px-4 text-blue-950 w-full"
+            className="w-full p-4 text-blue-950"
             placeholder="ex: rHb9CJAWyB4rj91VRWn96DkukG4bwdtyTh"
             value={destinationAddress}
             onChange={(e) => setDestinationAddress(e.currentTarget.value)}
             type="text"
           />
         </div>
-        <div className="self-end">
+        <div className="self-end flex-shrink-0 basis-28">
           <button
-            className="py-2 px-4 bg-blue-600 text-blue-50 rounded-r-md disabled:bg-slate-200 disabled:text-slate-400 hover:bg-blue-900 transition-colors"
+            className="w-full p-4 transition-colors bg-blue-600 text-blue-50 rounded-r-md disabled:bg-slate-200 disabled:text-slate-400 hover:bg-blue-900"
             onClick={async () => {
               setSending(true)
               try {
@@ -78,8 +78,8 @@ export function SendXRP({id}) {
         </div>
       </div>
       {sending && (
-        <div className="mt-2 text-center animate-bounce pt-4 pb-2">
-          <span className="bg-blue-600 text-blue-50 rounded-md py-2 px-4">
+        <div className="pt-4 pb-2 mt-2 text-center animate-bounce">
+          <span className="px-4 py-2 bg-blue-600 rounded-md text-blue-50">
             Waiting for response...
           </span>
         </div>
