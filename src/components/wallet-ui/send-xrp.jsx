@@ -54,7 +54,7 @@ export function SendXRP({id}) {
         </div>
         <div className="self-end">
           <button
-            className="py-2 px-4 bg-blue-600 text-blue-50 rounded-r-md disabled:bg-slate-200 disabled:text-slate-400"
+            className="py-2 px-4 bg-blue-600 text-blue-50 rounded-r-md disabled:bg-slate-200 disabled:text-slate-400 hover:bg-blue-900 transition-colors"
             onClick={async () => {
               setSending(true)
               try {

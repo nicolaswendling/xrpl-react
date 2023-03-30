@@ -3,7 +3,7 @@ import {useState} from "react"
 import {Number} from "./wallet-ui/number"
 
 export function CreateSourceWallet({children}) {
-  const amount = 10000
+  const amount = 100000
   const [seed, setSeed] = useState("")
   const [sending, setSending] = useState(false)
 
