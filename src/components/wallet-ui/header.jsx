@@ -1,3 +1,7 @@
 export const Header = ({children}) => {
-  return <h2 className="border-b-2 border-blue-950 mb-4 text-xl">{children}</h2>
+  return (
+    <h2 className="bg-blue-200 text-blue-900 mb-4 rounded-md p-2 text-xl text-center">
+      {children}
+    </h2>
+  )
 }
