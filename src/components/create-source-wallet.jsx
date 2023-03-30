@@ -17,6 +17,17 @@ export function CreateSourceWallet({children}) {
     }
   }
 
+  const handlerSubmit = async (event) => {
+    event.preventDefault()
+
+    setSending(true)
+    const initialState = await createWallet(amount.toString())
+    setSending(false)
+    if (initialState.wallet.seed) {
+      setSeed(initialState.wallet.seed)
+    }
+  }
+
   // When connected to the testnet/dev net, you can
   // use the useCreateWallet series of hooks to create
   // a wallet and fund it from the faucet.
@@ -29,8 +40,8 @@ export function CreateSourceWallet({children}) {
     <Wallet seed={seed}>{children}</Wallet>
   ) : (
     <div>
-      {!sending ? (
-        <>
+      <form onSubmit={handlerSubmit}>
+        <fieldset disabled={sending}>
           <div className="flex gap-2">
             <input
               type="number"
@@ -41,19 +52,15 @@ export function CreateSourceWallet({children}) {
               className="p-4 border-blue-950 w-full border-2 rounded-md"
               onChange={handlerAdjustAmount}
             />
-            <button
-              className="p-4 bg-blue-950 text-white rounded w-full hover:bg-blue-900 transition-colors duration-300"
-              onClick={async () => {
-                setSending(true)
-                const initialState = await createWallet(amount.toString())
-                setSending(false)
-                if (initialState.wallet.seed) {
-                  setSeed(initialState.wallet.seed)
-                }
-              }}
-            >
-              Create wallet of <Number value={amount} /> XRP
-            </button>
+            {!sending ? (
+              <button className="p-4 bg-blue-950 text-white rounded w-full hover:bg-blue-900 transition-colors duration-300">
+                Create wallet of <Number value={amount} /> XRP
+              </button>
+            ) : (
+              <div className="p-4 bg-blue-950 text-white rounded w-full inline-flex items-center justify-center">
+                <span className=" animate-pulse">Creating wallet</span>
+              </div>
+            )}
           </div>
           <input
             type="range"
@@ -64,10 +71,8 @@ export function CreateSourceWallet({children}) {
             value={amount}
             onChange={handlerAdjustAmount}
           />
-        </>
-      ) : (
-        <div className="p-4 text-center">Creating wallet...</div>
-      )}
+        </fieldset>
+      </form>
     </div>
   )
 }
