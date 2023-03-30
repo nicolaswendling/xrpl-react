@@ -3,9 +3,9 @@ import {useState} from "react"
 import {Number} from "./wallet-ui/number"
 
 export function CreateSourceWallet({children}) {
-  const min = 1000
-  const max = 1000000
-  const step = 1000
+  const min = 1_000
+  const max = 1_000_000
+  const step = 1_000
   const [seed, setSeed] = useState("")
   const [sending, setSending] = useState(false)
   const [amount, setAmount] = useState(min)
