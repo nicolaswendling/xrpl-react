@@ -42,6 +42,11 @@ export default function App() {
     <>
       <div className="mb-8 text-center max-w-sm mx-auto">
         <h1 className="text-2xl text-blue-600">
+          <img
+            src="/xrp-logo.webp"
+            alt="XRP"
+            className="h-8 block my-4 mx-auto"
+          />
           XRP
           <small class="block text-3xl text-blue-50">
             Utility for the new global economy
