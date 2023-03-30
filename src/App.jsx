@@ -46,7 +46,7 @@ export default function App() {
             className="h-8 block mb-2 mx-auto"
           />
           XRP
-          <small class="block text-3xl text-blue-50">
+          <small className="block text-3xl text-blue-50">
             Utility for the new global economy
           </small>
         </h1>

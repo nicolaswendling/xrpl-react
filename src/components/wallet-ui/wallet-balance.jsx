@@ -1,4 +1,5 @@
 import {useBalance} from "@nice-xrpl/react-xrpl"
+import {Number} from "./number"
 
 export function WalletBalance() {
   // The useBalance hook gives you the balance of a wallet
@@ -8,7 +9,7 @@ export function WalletBalance() {
 
   return (
     <div className="bg-blue-600 p-2 text-center  text-blue-50 gap-2 rounded-md">
-      {balance} XRP
+      <Number value={balance} /> XRP
     </div>
   )
 }

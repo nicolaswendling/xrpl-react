@@ -55,7 +55,6 @@ export function SendXRP({id}) {
               setSending(true)
               try {
                 const result = await sendXRP(destinationAddress, amount)
-                console.log("UI: ", result)
               } catch (e) {
                 alert(e)
               } finally {
