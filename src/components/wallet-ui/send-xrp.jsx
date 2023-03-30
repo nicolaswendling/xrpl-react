@@ -1,5 +1,6 @@
 import {useState} from "react"
 import {useBalance, useSendXRP, ReserveRequirement} from "@nice-xrpl/react-xrpl"
+import {Number} from "./number"
 
 export function SendXRP({id}) {
   // The useSendXRP hook can be used to send XRP to
@@ -16,7 +17,10 @@ export function SendXRP({id}) {
     <>
       <div className="mt-4 text-center">
         <label className="" htmlFor={`amount_${id}`}>
-          Send <strong className="text-blue-600 font-mono">{amount}XRP</strong>
+          Send{" "}
+          <strong className="text-blue-600 font-mono">
+            <Number value={amount} /> XRP
+          </strong>
         </label>
         &nbsp;
         <label htmlFor={`destinationAddress_${id}`} className="">
