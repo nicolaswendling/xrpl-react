@@ -8,9 +8,11 @@ export function SourceWallet({id}) {
   return (
     <>
       <div className="Wallet">
+        <Header>
+          <WalletBalance />
+        </Header>
         <SendXRP id={id} />
         <WalletInfo />
-        <WalletBalance />
       </div>
     </>
   )

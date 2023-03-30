@@ -1,6 +1,5 @@
 import {useState} from "react"
 import {useBalance, useSendXRP, ReserveRequirement} from "@nice-xrpl/react-xrpl"
-import {Header} from "./header"
 
 export function SendXRP({id}) {
   // The useSendXRP hook can be used to send XRP to
@@ -15,7 +14,7 @@ export function SendXRP({id}) {
 
   return (
     <>
-      <Header className="">
+      <div className="mt-4 text-center">
         <label className="" htmlFor={`amount_${id}`}>
           Send <strong className="text-blue-600 font-mono">{amount}XRP</strong>
         </label>
@@ -28,8 +27,8 @@ export function SendXRP({id}) {
             "fill the wallet address"
           )}
         </label>
-      </Header>
-      <div className="flex gap-px bg-blue-950 text-blue-50 p-2 my-6 rounded-md">
+      </div>
+      <div className="flex gap-px bg-slate-300 text-blue-50 p-2 mb-2 rounded-md">
         <div className="">
           <input
             id={`amount_${id}`}
@@ -51,7 +50,7 @@ export function SendXRP({id}) {
         </div>
         <div className="self-end">
           <button
-            className="py-2 px-4 bg-blue-600 text-blue-50 rounded-r-md disabled:bg-slate-300 disabled:text-slate-500"
+            className="py-2 px-4 bg-blue-600 text-blue-50 rounded-r-md disabled:bg-slate-200 disabled:text-slate-400"
             onClick={async () => {
               setSending(true)
               try {

@@ -7,8 +7,7 @@ export function WalletBalance() {
   const balance = useBalance()
 
   return (
-    <div className="bg-blue-200 p-2 flex gap-2 rounded-md">
-      <span className="font-bold basis-28">Balance:</span>
+    <div className="bg-blue-600 p-2 text-center  text-blue-50 gap-2 rounded-md">
       {balance} XRP
     </div>
   )
