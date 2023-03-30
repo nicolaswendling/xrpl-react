@@ -5,5 +5,15 @@ export function WalletInfo() {
   // of the wallet used up in the tree.
   const address = useWalletAddress()
 
-  return <div className="WalletRow">Address: {address}</div>
+  return (
+    <div className="bg-blue-50 p-2 mb-2 flex gap-2 items-center">
+      <span className="font-bold basis-28">Address:</span>
+      <input
+        className="py-2 px-4 text-blue-950 w-full"
+        defaultValue={address}
+        type="text"
+        readOnly={true}
+      />
+    </div>
+  )
 }

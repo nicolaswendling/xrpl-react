@@ -35,7 +35,7 @@ export function CreateSourceWallet({children}) {
           Create source wallet
         </button>
       ) : (
-        "Creating source wallet..."
+        <div className="p-4 text-center">Creating source wallet...</div>
       )}
     </div>
   )

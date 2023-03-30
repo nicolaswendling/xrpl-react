@@ -35,7 +35,7 @@ export function CreateDestinationWallet({children}) {
           Create destination wallet
         </button>
       ) : (
-        "Creating destination wallet..."
+        <div className="p-4 text-center">Creating destination wallet...</div>
       )}
     </div>
   )

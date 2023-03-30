@@ -6,5 +6,10 @@ export function WalletBalance() {
   // a wallet or a wallet address.
   const balance = useBalance()
 
-  return <div className="WalletRow">Balance: {balance}</div>
+  return (
+    <div className="bg-blue-50 p-2 flex gap-2">
+      <span className="font-bold basis-28">Balance:</span>
+      {balance} XRP
+    </div>
+  )
 }
