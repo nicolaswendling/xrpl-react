@@ -19,15 +19,12 @@ export function CreateDestinationWallet({children}) {
     <div>
       {!sending ? (
         <button
-          className="p-4 bg-blue-950 text-white rounded w-full"
+          className="p-4 bg-blue-950 text-white rounded w-full hover:bg-blue-900 transition-colors duration-300"
           onClick={async () => {
             setSending(true)
             const initialState = await createWallet("10000")
-
             setSending(false)
-
             if (initialState.wallet.address) {
-              console.log("created wallet: ", initialState)
               setAddress(initialState.wallet.address)
             }
           }}

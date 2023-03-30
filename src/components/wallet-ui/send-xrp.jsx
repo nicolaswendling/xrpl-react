@@ -14,11 +14,22 @@ export function SendXRP() {
 
   return (
     <>
-      <div className="flex gap-px bg-blue-900 text-blue-50 p-2 rounded mt-4">
+      <div className="text-center text-lg mt-4">
+        <label className="" htmlFor="srcAmount">
+          Send <strong className="text-blue-600">{amount}XRP</strong>
+        </label>
+        &nbsp;
+        <label htmlFor="destinationAddress" className="">
+          to{": "}
+          {destinationAddress ? (
+            <strong className="text-base">{destinationAddress}</strong>
+          ) : (
+            "fill the wallet address"
+          )}
+        </label>
+      </div>
+      <div className="flex gap-px bg-slate-950 text-blue-50 p-4 rounded-md">
         <div className="">
-          <label className="block" htmlFor="srcAmount">
-            I'll send XRP
-          </label>
           <input
             id="srcAmount"
             className="py-2 px-4 text-blue-950 rounded-l-md  w-full max-w-[200px]"
@@ -28,9 +39,6 @@ export function SendXRP() {
           />
         </div>
         <div className=" flex-1">
-          <label htmlFor="destinationAddress" className="block">
-            to this address
-          </label>
           <input
             id="destinationAddress"
             className="py-2 px-4 text-blue-950 w-full"

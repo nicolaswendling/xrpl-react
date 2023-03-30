@@ -11,12 +11,14 @@ function MainApp() {
   const isConnected = useIsConnected()
 
   return (
-    <div className="relative p-10 bg-blue-200  rounded-b-md rounded-tl-md font-mono">
-      <div className="py-2 px-4 bg-blue-200 mb-px  text-blue-900 absolute bottom-full right-0 rounded-t-md">
-        Connected to XRPL: {isConnected ? "Yes" : "No"}
+    <div className="font-mono">
+      <div className="text-center mb-8">
+        <div className="inline-flex py-2 px-4 bg-blue-600 text-blue-50 rounded-md">
+          Connected to XRPL: {isConnected ? "Yes" : "No"}
+        </div>
       </div>
 
-      <Wrapper className="mb-10">
+      <Wrapper className="mb-4">
         <CreateSourceWallet>
           <SourceWallet />
         </CreateSourceWallet>
@@ -38,9 +40,24 @@ function MainApp() {
 export default function App() {
   return (
     <>
+      <div className="mb-8 text-center max-w-sm mx-auto">
+        <h1 className="text-2xl text-blue-600">
+          XRP
+          <small class="block text-3xl text-blue-50">
+            Utility for the new global economy
+          </small>
+        </h1>
+      </div>
       <XRPLClient network={Networks.Testnet}>
         <MainApp />
       </XRPLClient>
+      <div className="text-blue-600 text-sm mt-8 text-center max-w-sm mx-auto">
+        <p className="mt-2">
+          Fast and green, the digital asset XRP was built to be the most
+          practical cryptocurrency for applications across the financial
+          services space.
+        </p>
+      </div>
     </>
   )
 }

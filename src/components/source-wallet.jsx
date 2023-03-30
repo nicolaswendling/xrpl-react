@@ -6,12 +6,14 @@ import {Header} from "./wallet-ui/header"
 
 export function SourceWallet() {
   return (
-    <div className="Wallet">
-      <Header>Source Wallet</Header>
-      <WalletSeed />
-      <WalletInfo />
-      <WalletBalance />
+    <>
+      <div className="Wallet">
+        <Header>Source Wallet</Header>
+        <WalletSeed />
+        <WalletInfo />
+        <WalletBalance />
+      </div>
       <SendXRP />
-    </div>
+    </>
   )
 }
