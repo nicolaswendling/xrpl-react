@@ -10,15 +10,18 @@ function MainApp() {
   const isConnected = useIsConnected()
 
   return (
-    <div className="MainApp">
-      <div>Connected: {isConnected ? "Yes" : "No"}</div>
-      <div className="WalletWrapper">
+    <div className="relative p-10 bg-blue-200  rounded-b-md rounded-tl-md">
+      <div className="py-2 px-4 bg-blue-200 mb-px  text-blue-900 absolute bottom-full right-0 rounded-t-md">
+        Connected to XRPL: {isConnected ? "Yes" : "No"}
+      </div>
+
+      <div className="p-2 bg-blue-100 mb-2 rounded-md">
         <CreateSourceWallet>
           <SourceWallet />
         </CreateSourceWallet>
       </div>
 
-      <div className="WalletWrapper">
+      <div className="p-2 bg-blue-100 rounded-md">
         <CreateDestinationWallet>
           <DestinationWallet />
         </CreateDestinationWallet>

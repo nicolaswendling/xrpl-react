@@ -19,7 +19,7 @@ export function CreateDestinationWallet({children}) {
     <div>
       {!sending ? (
         <button
-          className="p-2 bg-blue-500 text-white rounded"
+          className="p-4 bg-blue-950 text-white rounded w-full"
           onClick={async () => {
             setSending(true)
             const initialState = await createWallet("1048")
