@@ -3,6 +3,7 @@ import {CreateSourceWallet} from "./components/create-source-wallet"
 import {CreateDestinationWallet} from "./components/create-destination-wallet"
 import {DestinationWallet} from "./components/destination-wallet"
 import {SourceWallet} from "./components/source-wallet"
+import {WrapperWallet as Wrapper} from "./components/wallet-ui/wrapper-wallet"
 
 function MainApp() {
   // The useIsConnected hook will let you know
@@ -15,17 +16,17 @@ function MainApp() {
         Connected to XRPL: {isConnected ? "Yes" : "No"}
       </div>
 
-      <div className="p-2 bg-blue-100 mb-2 rounded-md">
+      <Wrapper className="mb-2">
         <CreateSourceWallet>
           <SourceWallet />
         </CreateSourceWallet>
-      </div>
+      </Wrapper>
 
-      <div className="p-2 bg-blue-100 rounded-md">
+      <Wrapper>
         <CreateDestinationWallet>
           <DestinationWallet />
         </CreateDestinationWallet>
-      </div>
+      </Wrapper>
     </div>
   )
 }
