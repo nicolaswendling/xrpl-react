@@ -12,12 +12,6 @@ function MainApp() {
 
   return (
     <div className="font-mono">
-      <div className="text-center mb-8">
-        <div className="inline-flex py-2 px-4 bg-blue-600 text-blue-50 rounded-md">
-          Connected to XRPL: {isConnected ? "Yes" : "No"}
-        </div>
-      </div>
-
       <Wrapper className="mb-4">
         <CreateSourceWallet>
           <SourceWallet />
@@ -29,6 +23,12 @@ function MainApp() {
           <DestinationWallet />
         </CreateDestinationWallet>
       </Wrapper>
+
+      <div className="text-center my-8">
+        <div className="inline-flex py-2 px-4 bg-blue-600 text-blue-50 rounded-md">
+          Connected to XRPL: {isConnected ? "Yes" : "No"}
+        </div>
+      </div>
     </div>
   )
 }
