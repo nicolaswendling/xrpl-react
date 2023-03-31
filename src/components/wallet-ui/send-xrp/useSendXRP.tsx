@@ -15,11 +15,16 @@ export const useSendXRP = () => {
   const [destinationAddress, setDestinationAddress] = useState("")
   const [amount, setAmount] = useState(0)
   const [sending, setSending] = useState(false)
+  const [maxAmount] = useState(balance - RESERVE_REQUIREMENT)
+
+  const isDisabled = () =>
+    !amount || amount >= maxAmount || !destinationAddress || sending
 
   const handlerOnSubmit = async (event: FormEvent) => {
     event.preventDefault()
     requestSendXRP({
       balance,
+      maxAmount,
       RESERVE_REQUIREMENT,
       amount,
       address: destinationAddress,
@@ -29,24 +34,16 @@ export const useSendXRP = () => {
     })
   }
 
-  const isDisabled = () => {
-    return (
-      !amount ||
-      amount >= balance - RESERVE_REQUIREMENT ||
-      !destinationAddress ||
-      sending
-    )
-  }
-
   return {
+    isDisabled,
     balance,
+    maxAmount,
     amount,
     sending,
     setAmount,
     destinationAddress,
     setDestinationAddress,
     handlerOnSubmit,
-    isDisabled,
     RESERVE_REQUIREMENT,
   }
 }

@@ -1,8 +1,8 @@
 import React from "react"
 
 const querySendXRP = async ({
-  balance,
   RESERVE_REQUIREMENT,
+  maxAmount,
   amount,
   address,
   setSending,
@@ -13,7 +13,7 @@ const querySendXRP = async ({
     return alert("Please fill the wallet address")
   }
 
-  if (amount >= balance - RESERVE_REQUIREMENT) {
+  if (amount >= maxAmount) {
     return alert("Not enough XRP")
   }
 

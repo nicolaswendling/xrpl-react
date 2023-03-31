@@ -8,15 +8,14 @@ import {Button} from "./Button"
 
 export const SendXRP = ({id}: {id: string}) => {
   const {
-    balance,
     amount,
+    maxAmount,
     setAmount,
     destinationAddress,
     setDestinationAddress,
     handlerOnSubmit,
-    isDisabled,
     sending,
-    RESERVE_REQUIREMENT,
+    isDisabled,
   } = useSendXRP()
 
   return (
@@ -26,7 +25,7 @@ export const SendXRP = ({id}: {id: string}) => {
         <fieldset disabled={sending}>
           <div className="flex gap-px p-2 mb-2 rounded-md bg-slate-300 text-blue-50">
             <InputAmount
-              max={balance - RESERVE_REQUIREMENT}
+              max={maxAmount}
               amount={amount}
               setAmount={setAmount}
               id={id}
@@ -38,11 +37,7 @@ export const SendXRP = ({id}: {id: string}) => {
             />
             <Button disabled={isDisabled()} />
           </div>
-          <InputRange
-            max={balance - RESERVE_REQUIREMENT}
-            amount={amount}
-            setAmount={setAmount}
-          />
+          <InputRange max={maxAmount} amount={amount} setAmount={setAmount} />
         </fieldset>
       </form>
       {sending && <Loading />}
