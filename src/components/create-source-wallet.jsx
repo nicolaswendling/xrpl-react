@@ -44,35 +44,35 @@ export function CreateSourceWallet({children}) {
     <div>
       <form onSubmit={handlerSubmit}>
         <fieldset disabled={sending}>
-          <div className="flex gap-0">
+          <div className="flex flex-col gap-2">
             <input
               type="number"
               min={min}
               max={max}
               step={step}
               value={amount}
-              className="w-full p-4 border-2 rounded-l-md border-blue-950"
+              className="w-full p-4 border-2 rounded-md border-blue-950"
+              onChange={handlerAdjustAmount}
+            />
+            <input
+              type="range"
+              className="w-full"
+              min={min}
+              max={max}
+              step={step}
+              value={amount}
               onChange={handlerAdjustAmount}
             />
             {!sending ? (
-              <button className="w-full p-4 text-white transition-colors duration-300 rounded-r-md bg-blue-950 hover:bg-blue-900">
+              <button className="w-full p-4 text-white transition-colors duration-300 rounded-md bg-blue-950 hover:bg-blue-900">
                 Create wallet of <Number value={amount} /> XRP
               </button>
             ) : (
-              <div className="w-full p-4 text-center text-white transition-colors duration-300 rounded-r-md bg-blue-950">
+              <div className="w-full p-4 text-center text-white transition-colors duration-300 rounded-md bg-blue-950">
                 <span className=" animate-pulse">Creating wallet</span>
               </div>
             )}
           </div>
-          <input
-            type="range"
-            className="w-full mt-4"
-            min={min}
-            max={max}
-            step={step}
-            value={amount}
-            onChange={handlerAdjustAmount}
-          />
         </fieldset>
       </form>
     </div>

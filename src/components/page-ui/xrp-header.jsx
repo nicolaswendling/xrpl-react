@@ -1,6 +1,6 @@
 export const XRPHeader = () => {
   return (
-    <header className="max-w-sm mx-auto mb-8 text-center">
+    <header className="max-w-sm mx-auto my-8 text-center">
       <h1 className="text-2xl text-blue-600">
         <img
           src="/xrp-logo.webp"

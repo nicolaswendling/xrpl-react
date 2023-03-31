@@ -47,9 +47,11 @@ export function SendXRP({id}) {
         </label>
         &nbsp;
         <label htmlFor={`destinationAddress_${id}`} className="">
-          to{": "}
+          to{" "}
           {destinationAddress ? (
-            <strong className="text-base">{destinationAddress}</strong>
+            <strong className="text-base text-blue-600">
+              {destinationAddress}
+            </strong>
           ) : (
             "fill the wallet address"
           )}
@@ -105,7 +107,7 @@ export function SendXRP({id}) {
       {sending && (
         <div className="pt-4 pb-2 mt-2 text-center animate-bounce">
           <span className="px-4 py-2 bg-blue-600 rounded-md text-blue-50">
-            Waiting for response...
+            Transaction in progress
           </span>
         </div>
       )}
