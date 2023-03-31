@@ -5,11 +5,13 @@ export const Connected = () => {
   const isConnected = useIsConnected()
 
   return (
-    <div className="my-8 text-center text-blue-50">
-      Connected to XRPL:
-      <span className="inline-flex p-1 bg-blue-600 rounded-md text-blue-50">
-        {isConnected ? "Yes" : "No"}
-      </span>
+    <div className="flex items-center justify-center my-8 text-blue-50">
+      Connected to XRPL&nbsp;
+      {!isConnected ? (
+        <span className="inline-flex flex-shrink-0 p-2 rounded-full bg-slate-700"></span>
+      ) : (
+        <span className="inline-flex flex-shrink-0 p-2 bg-blue-600 rounded-full"></span>
+      )}
     </div>
   )
 }
