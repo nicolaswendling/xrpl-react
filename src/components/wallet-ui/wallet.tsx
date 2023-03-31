@@ -1,5 +1,5 @@
 import {useState} from "react"
-import {CreateSourceWallet} from "../create-source-wallet.jsx"
+import {CreateSourceWallet} from "../create-source-wallet"
 import {SourceWallet} from "../source-wallet.jsx"
 import {WrapperWallet as Wrapper} from "./wrapper.jsx"
 
