@@ -1,11 +1,12 @@
 import {useState} from "react"
-import {WalletUI} from "./components/wallet-ui/wallet"
+import {WalletUI} from "./components/wallet-ui/wallet-ui"
 import {AddWallet} from "./components/wallet-ui/add-wallet"
 import {Connected} from "./components/connected"
 
 export const MainApp = () => {
   const MAX_WALLETS = 4
   const [wallets, setWallets] = useState(2)
+
   const addWallet = () => {
     if (wallets >= MAX_WALLETS)
       return alert(`You can only have ${MAX_WALLETS} wallets at a time`)

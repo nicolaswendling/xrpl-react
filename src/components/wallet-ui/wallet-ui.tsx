@@ -2,7 +2,7 @@ import {CreateSourceWallet} from "../create-wallet"
 import {Wallet} from "../wallet"
 import {Wrapper} from "./wrapper"
 
-export const WalletUI = ({id}: {id: number}) => {
+export const WalletUI = ({id}: {id: string}) => {
   return (
     <Wrapper>
       <CreateSourceWallet>

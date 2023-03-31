@@ -2,7 +2,7 @@ import {FormEvent, useState} from "react"
 import {useBalance, useSendXRP, ReserveRequirement} from "@nice-xrpl/react-xrpl"
 import {Number} from "./number"
 
-export function SendXRP({id}: {id: number}) {
+export const SendXRP = ({id}: {id: string}) => {
   const sendXRP = useSendXRP()
   const balance = useBalance()
 

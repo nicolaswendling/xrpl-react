@@ -2,7 +2,7 @@ import {useCreateWallet, Wallet} from "@nice-xrpl/react-xrpl"
 import {useState, FormEvent, ChangeEvent} from "react"
 import {Number} from "./wallet-ui/number"
 
-export function CreateSourceWallet({children}) {
+export function CreateSourceWallet({children}: {children: React.ReactNode}) {
   const min = 1_000
   const max = 1_000_000
   const step = 1_000

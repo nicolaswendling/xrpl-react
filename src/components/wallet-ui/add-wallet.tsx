@@ -1,5 +1,5 @@
 type Props = {
-  onClick: () => {}
+  onClick: () => void
   disabled: boolean
 }
 
