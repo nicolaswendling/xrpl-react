@@ -1,6 +1,6 @@
 import {useState} from "react"
 import {Wallet} from "./components/wallet-ui/wallet.jsx"
-import {AddWallet} from "./components/wallet-ui/add-wallet.jsx"
+import {AddWallet} from "./components/wallet-ui/add-wallet"
 import {Connected} from "./components/connected.jsx"
 
 export const MainApp = () => {

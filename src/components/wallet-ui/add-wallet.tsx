@@ -1,10 +1,9 @@
-export const AddWallet = ({
-  onClick,
-  disabled,
-}: {
+type PropsType = {
   onClick: () => {}
   disabled: boolean
-}) => {
+}
+
+export const AddWallet = ({onClick, disabled}: PropsType) => {
   return (
     <div className="mt-4 text-center">
       <button
