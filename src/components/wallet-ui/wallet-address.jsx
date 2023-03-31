@@ -18,7 +18,7 @@ export function WalletAddress() {
         <button
           className="flex-shrink-0 px-4 py-2 transition-colors bg-blue-600 basis-28 text-blue-50 rounded-r-md disabled:bg-slate-200 disabled:text-slate-400 hover:bg-blue-900"
           onClick={async () => {
-            navigator.clipboard.writeText(address)
+            await navigator.clipboard.writeText(address)
             alert(`${address} copied to clipboard!`)
           }}
         >
