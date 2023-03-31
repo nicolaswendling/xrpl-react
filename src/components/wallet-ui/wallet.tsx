@@ -1,12 +1,12 @@
 import {CreateSourceWallet} from "../create-wallet"
-import {Wallet} from "../wallet"
+import {TransactionsWallet} from "../transactions-wallet"
 import {Wrapper} from "./wrapper"
 
-export const WalletUI = ({id}: {id: string}) => {
+export const Wallet = ({id}: {id: string}) => {
   return (
     <Wrapper>
       <CreateSourceWallet>
-        <Wallet id={id} />
+        <TransactionsWallet id={id} />
       </CreateSourceWallet>
     </Wrapper>
   )
