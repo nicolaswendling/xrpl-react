@@ -1,10 +1,7 @@
 import {useBalance} from "@nice-xrpl/react-xrpl"
 import {Number} from "./number"
 
-export function WalletBalance() {
-  // The useBalance hook gives you the balance of a wallet
-  // This is a request hook, so it can be used with
-  // a wallet or a wallet address.
+export const WalletBalance = () => {
   const balance = useBalance()
 
   return (
