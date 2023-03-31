@@ -82,7 +82,10 @@ export function SendXRP({id}) {
               }
               type="text"
             />
-            <button className="self-end flex-shrink-0 w-full p-4 transition-colors bg-blue-600 basis-28 text-blue-50 rounded-r-md disabled:bg-slate-200 disabled:text-slate-400 hover:bg-blue-900">
+            <button
+              className="self-end flex-shrink-0 w-full p-4 transition-colors bg-blue-600 basis-28 text-blue-50 rounded-r-md disabled:bg-slate-200 disabled:text-slate-400 hover:bg-blue-900"
+              disabled={isDisabled()}
+            >
               Send
             </button>
           </div>
