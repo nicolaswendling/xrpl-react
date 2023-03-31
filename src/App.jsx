@@ -1,32 +1,25 @@
-import {Networks, useIsConnected, XRPLClient} from "@nice-xrpl/react-xrpl"
-import {CreateSourceWallet} from "./components/create-source-wallet.jsx"
-import {SourceWallet} from "./components/source-wallet.jsx"
-import {WrapperWallet as Wrapper} from "./components/wallet-ui/wrapper-wallet.jsx"
-
+import {useState} from "react"
+import {Networks, XRPLClient} from "@nice-xrpl/react-xrpl"
+import {Wallet} from "./components/wallet-ui/wallet.jsx"
+import {Connected} from "./components/connected.jsx"
 function MainApp() {
-  // The useIsConnected hook will let you know
-  // when the client has connected to the xrpl network
-  const isConnected = useIsConnected()
+  const [wallets, setWallets] = useState(2)
+  const addWallet = () => setWallets((current) => current + 1)
 
   return (
     <div className="font-mono">
-      <Wrapper className="mb-4">
-        <CreateSourceWallet>
-          <SourceWallet id="01" />
-        </CreateSourceWallet>
-      </Wrapper>
-
-      <Wrapper>
-        <CreateSourceWallet>
-          <SourceWallet id="02" />
-        </CreateSourceWallet>
-      </Wrapper>
-
-      <div className="my-8 text-center">
-        <div className="inline-flex px-4 py-2 bg-blue-600 rounded-md text-blue-50">
-          Connected to XRPL: {isConnected ? "Yes" : "No"}
-        </div>
+      {[...Array(wallets)].map((_, index) => (
+        <Wallet key={`wallet_${index}`} id={`wallet_${index}`} />
+      ))}
+      <div className="mt-4 text-center">
+        <button
+          className="px-6 py-4 transition-colors duration-500 bg-blue-600 rounded-md text-blue-50 hover:bg-blue-200 hover:text-blue-950"
+          onClick={addWallet}
+        >
+          Ajouter un Wallet
+        </button>
       </div>
+      <Connected />
     </div>
   )
 }
