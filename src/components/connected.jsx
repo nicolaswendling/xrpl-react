@@ -1,7 +1,6 @@
 import {useIsConnected} from "@nice-xrpl/react-xrpl"
 
 export const Connected = () => {
-  // The useIsConnected hook will let you know // when the client has connected to the xrpl network
   const isConnected = useIsConnected()
 
   return (

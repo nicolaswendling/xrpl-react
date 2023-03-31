@@ -1,21 +1,25 @@
-import {useState} from "react"
+import {FormEvent, useState} from "react"
 import {useBalance, useSendXRP, ReserveRequirement} from "@nice-xrpl/react-xrpl"
 import {Number} from "./number"
 
-export function SendXRP({id}) {
-  // The useSendXRP hook can be used to send XRP to
-  // another account.  This is a transactional hook and
-  // requires a wallet.
+export function SendXRP({id}: {id: number}) {
   const sendXRP = useSendXRP()
   const balance = useBalance()
 
   const [destinationAddress, setDestinationAddress] = useState("")
   const [amount, setAmount] = useState(0)
   const [sending, setSending] = useState(false)
-  const handlerOnSubmit = async (event) => {
+
+  const handlerOnSubmit = async (event: FormEvent) => {
     event.preventDefault()
-    if (destinationAddress === "") return
-    if (amount >= balance - ReserveRequirement) return
+
+    if (destinationAddress === "") {
+      return alert("Please fill the wallet address")
+    }
+
+    if (amount >= balance - ReserveRequirement) {
+      return alert("Not enough XRP")
+    }
 
     setSending(true)
     try {
@@ -65,12 +69,17 @@ export function SendXRP({id}) {
               className="p-4 text-blue-950 rounded-l-md  w-full max-w-[200px]"
               value={amount}
               onChange={(event) => {
-                let value = event.currentTarget.value
-                if (value === "") value = 0
-                if (value < 0) value = 0
-                if (value >= balance - ReserveRequirement)
+                let value = parseInt(event.currentTarget.value, 10)
+
+                if (isNaN(value) || value < 0) {
+                  value = 0
+                }
+
+                if (value >= balance - ReserveRequirement) {
                   value = balance - ReserveRequirement
-                setAmount(parseInt(value, 10))
+                }
+
+                setAmount(value)
               }}
               type="number"
             />

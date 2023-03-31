@@ -1,7 +1,7 @@
 import {useState} from "react"
-import {Wallet} from "./components/wallet-ui/wallet.jsx"
+import {WalletUI} from "./components/wallet-ui/wallet"
 import {AddWallet} from "./components/wallet-ui/add-wallet"
-import {Connected} from "./components/connected.jsx"
+import {Connected} from "./components/connected"
 
 export const MainApp = () => {
   const MAX_WALLETS = 4
@@ -16,7 +16,7 @@ export const MainApp = () => {
     <main className="font-mono">
       <div className="grid gap-4">
         {[...Array(wallets)].map((_, index) => (
-          <Wallet key={`wallet_${index}`} id={`wallet_${index}`} />
+          <WalletUI key={`wallet_${index}`} id={`wallet_${index}`} />
         ))}
       </div>
       <AddWallet disabled={wallets >= MAX_WALLETS} onClick={addWallet} />

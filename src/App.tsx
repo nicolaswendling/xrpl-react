@@ -1,9 +1,9 @@
 import {Networks, XRPLClient} from "@nice-xrpl/react-xrpl"
 import {MainApp} from "./MainApp.jsx"
-import {XRPHeader} from "./components/page-ui/xrp-header.jsx"
-import {XRPFooter} from "./components/page-ui/xrp-footer.jsx"
+import {XRPHeader} from "./components/page-ui/xrp-header"
+import {XRPFooter} from "./components/page-ui/xrp-footer"
 
-export default function App() {
+const App = () => {
   return (
     <>
       <XRPHeader />
@@ -14,3 +14,5 @@ export default function App() {
     </>
   )
 }
+
+export default App

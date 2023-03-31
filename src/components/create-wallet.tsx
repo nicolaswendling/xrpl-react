@@ -1,23 +1,25 @@
 import {useCreateWallet, Wallet} from "@nice-xrpl/react-xrpl"
-import {useState} from "react"
+import {useState, FormEvent, ChangeEvent} from "react"
 import {Number} from "./wallet-ui/number"
 
 export function CreateSourceWallet({children}) {
   const min = 1_000
   const max = 1_000_000
   const step = 1_000
+
   const [seed, setSeed] = useState("")
   const [sending, setSending] = useState(false)
   const [amount, setAmount] = useState(min)
+  const createWallet = useCreateWallet()
 
-  const handlerAdjustAmount = (event) => {
-    const value = parseInt(event.currentTarget.value, 10)
+  const handlerAdjustAmount = (event: ChangeEvent<HTMLInputElement>) => {
+    const value = parseInt(event.target.value, 10)
     if (value >= min && value <= max) {
       setAmount(value)
     }
   }
 
-  const handlerSubmit = async (event) => {
+  const handlerSubmit = async (event: FormEvent) => {
     event.preventDefault()
 
     setSending(true)
@@ -28,14 +30,6 @@ export function CreateSourceWallet({children}) {
     }
   }
 
-  // When connected to the testnet/dev net, you can
-  // use the useCreateWallet series of hooks to create
-  // a wallet and fund it from the faucet.
-  const createWallet = useCreateWallet()
-
-  // The Wallet component is used when you have
-  // credentials. It enables the use of all
-  // transactional hooks and all request hooks.
   return seed ? (
     <>
       <Wallet seed={seed}>{children}</Wallet>
