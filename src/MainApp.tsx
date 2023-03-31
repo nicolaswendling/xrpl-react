@@ -1,19 +1,30 @@
-import {useState} from "react"
+import {useState, useEffect} from "react"
 import {Wallet} from "./components/wallet"
 import {AddWallet} from "./components/wallet-ui/add-wallet"
 import {Connected} from "./components/connected"
 
-export const MainApp = () => {
-  const MAX_WALLETS = 4
-  const [wallets, setWallets] = useState(2)
-  const [locked, setLocked] = useState(true)
-  const [seeds, setSeeds] = useState([])
+export const useWallets = (maxWallet: number) => {
+  const MAX_WALLETS = maxWallet
+  const MIN_WALLETS = 2
+  const [wallets, setWallets] = useState(MIN_WALLETS)
+
+  const isDisabled = () => wallets >= MAX_WALLETS || wallets <= MIN_WALLETS
 
   const addWallet = () => {
     if (wallets >= MAX_WALLETS)
       return alert(`You can only have ${MAX_WALLETS} wallets at a time`)
     setWallets((current) => current + 1)
   }
+
+  return {
+    isDisabled,
+    wallets,
+    addWallet,
+  }
+}
+
+export const MainApp = () => {
+  const {wallets, isDisabled, addWallet} = useWallets(4)
 
   return (
     <main className="font-mono">
@@ -22,10 +33,7 @@ export const MainApp = () => {
           <Wallet key={`wallet_${index}`} id={`wallet_${index}`} />
         ))}
       </div>
-      <AddWallet
-        disabled={wallets >= MAX_WALLETS || locked}
-        onClick={addWallet}
-      />
+      <AddWallet disabled={isDisabled()} onClick={addWallet} />
       <Connected />
     </main>
   )
