@@ -1,6 +1,6 @@
 import {SendXRP} from "./wallet-ui/send-xrp"
 import {WalletBalance} from "./wallet-ui/wallet-balance"
-import {WalletInfo} from "./wallet-ui/wallet-info"
+import {WalletAddress} from "./wallet-ui/wallet-address"
 import {Header} from "./wallet-ui/header"
 
 export function SourceWallet({id}) {
@@ -11,7 +11,7 @@ export function SourceWallet({id}) {
           <WalletBalance />
         </Header>
         <SendXRP id={id} />
-        <WalletInfo />
+        <WalletAddress />
       </div>
     </>
   )

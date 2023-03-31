@@ -1,6 +1,6 @@
 import {useWalletAddress} from "@nice-xrpl/react-xrpl"
 
-export function WalletInfo() {
+export function WalletAddress() {
   // The useWalletAddress hook gives you the address
   // of the wallet used up in the tree.
   const address = useWalletAddress()
