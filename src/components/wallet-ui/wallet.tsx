@@ -1,10 +1,8 @@
-import {useState} from "react"
-import {CreateSourceWallet} from "../create-source-wallet"
-import {SourceWallet} from "../source-wallet.jsx"
-import {WrapperWallet as Wrapper} from "./wrapper.jsx"
+import {CreateSourceWallet} from "../create-wallet"
+import {SourceWallet} from "../wallet"
+import {Wrapper} from "./wrapper"
 
-export const Wallet = ({id}) => {
-  const [isActivated, setIsActivated] = useState(false)
+export const Wallet = ({id}: {id: number}) => {
   return (
     <Wrapper>
       <CreateSourceWallet>
