@@ -12,7 +12,30 @@ export function SendXRP({id}) {
   const [destinationAddress, setDestinationAddress] = useState("")
   const [amount, setAmount] = useState(0)
   const [sending, setSending] = useState(false)
+  const handlerOnSubmit = async (event) => {
+    event.preventDefault()
+    if (destinationAddress === "") return
+    if (amount >= balance - ReserveRequirement) return
 
+    setSending(true)
+    try {
+      const result = await sendXRP(destinationAddress, amount)
+    } catch (error) {
+      alert(error)
+    } finally {
+      setSending(false)
+      setAmount(0)
+    }
+  }
+
+  const isDisabled = () => {
+    return (
+      !amount ||
+      amount >= balance - ReserveRequirement ||
+      !destinationAddress ||
+      sending
+    )
+  }
   return (
     <>
       <div className="mt-4 text-center">
@@ -32,51 +55,50 @@ export function SendXRP({id}) {
           )}
         </label>
       </div>
-      <div className="flex gap-px p-2 mb-2 rounded-md bg-slate-300 text-blue-50">
-        <div className="">
-          <input
-            id={`amount_${id}`}
-            className="p-4 text-blue-950 rounded-l-md  w-full max-w-[200px]"
-            value={amount}
-            onChange={(e) => setAmount(parseInt(e.currentTarget.value, 10))}
-            type="number"
-          />
-        </div>
-        <div className="flex-1 ">
-          <input
-            id={`destinationAddress_${id}`}
-            className="w-full p-4 text-blue-950"
-            placeholder="ex: rHb9CJAWyB4rj91VRWn96DkukG4bwdtyTh"
-            value={destinationAddress}
-            onChange={(e) => setDestinationAddress(e.currentTarget.value)}
-            type="text"
-          />
-        </div>
-        <div className="self-end flex-shrink-0 basis-28">
-          <button
-            className="w-full p-4 transition-colors bg-blue-600 text-blue-50 rounded-r-md disabled:bg-slate-200 disabled:text-slate-400 hover:bg-blue-900"
-            onClick={async () => {
-              setSending(true)
-              try {
-                const result = await sendXRP(destinationAddress, amount)
-              } catch (e) {
-                alert(e)
-              } finally {
-                setSending(false)
-                setAmount(0)
+      <form onSubmit={handlerOnSubmit}>
+        <fieldset disabled={sending}>
+          <div className="flex gap-px p-2 mb-2 rounded-md bg-slate-300 text-blue-50">
+            <input
+              id={`amount_${id}`}
+              className="p-4 text-blue-950 rounded-l-md  w-full max-w-[200px]"
+              value={amount}
+              onChange={(event) => {
+                let value = event.currentTarget.value
+                if (value === "") value = 0
+                if (value < 0) value = 0
+                if (value >= balance - ReserveRequirement)
+                  value = balance - ReserveRequirement
+                setAmount(parseInt(value, 10))
+              }}
+              type="number"
+            />
+            <input
+              id={`destinationAddress_${id}`}
+              className="flex-1 w-full p-4 text-blue-950"
+              placeholder="ex: rHb9CJAWyB4rj91VRWn96DkukG4bwdtyTh"
+              value={destinationAddress}
+              onChange={(event) =>
+                setDestinationAddress(event.currentTarget.value)
               }
-            }}
-            disabled={
-              !amount ||
-              amount >= balance - ReserveRequirement ||
-              !destinationAddress ||
-              sending
+              type="text"
+            />
+            <button className="self-end flex-shrink-0 w-full p-4 transition-colors bg-blue-600 basis-28 text-blue-50 rounded-r-md disabled:bg-slate-200 disabled:text-slate-400 hover:bg-blue-900">
+              Send
+            </button>
+          </div>
+          <input
+            type="range"
+            min="0"
+            step="1"
+            max={balance - ReserveRequirement}
+            value={amount}
+            onChange={(event) =>
+              setAmount(parseInt(event.currentTarget.value, 10))
             }
-          >
-            Send
-          </button>
-        </div>
-      </div>
+            className="w-full"
+          />
+        </fieldset>
+      </form>
       {sending && (
         <div className="pt-4 pb-2 mt-2 text-center animate-bounce">
           <span className="px-4 py-2 bg-blue-600 rounded-md text-blue-50">
