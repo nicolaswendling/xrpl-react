@@ -1,9 +1,5 @@
 import {useState} from "react"
-import {
-  SendXrpProps,
-  SendXRPReturnProps,
-  QuerySendXRPProps,
-} from "./send-xrp-types"
+import {SendXrpProps, SendXRPReturnProps, QuerySendXRPProps} from "./types"
 import {
   useSendXRP as useSendXRPL,
   ReserveRequirement as RESERVE_REQUIREMENT,
