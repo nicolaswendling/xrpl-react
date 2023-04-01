@@ -1,9 +1,9 @@
-type SendXrpProps = (
+export type SendXrpProps = (
   address: string,
   amount: number
 ) => Promise<SendXRPReturnProps>
 
-type SendXRPReturnProps = {
+export type SendXRPReturnProps = {
   id: number
   result: {
     Fee: string
@@ -13,7 +13,7 @@ type SendXRPReturnProps = {
   }
 }
 
-type QuerySendXRPProps = {
+export type QuerySendXRPProps = {
   amount: number
   address: string
   setAmount: (amount: number) => void
