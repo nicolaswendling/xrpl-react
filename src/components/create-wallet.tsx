@@ -2,7 +2,11 @@ import {Wallet} from "@nice-xrpl/react-xrpl"
 import {useState, ReactNode} from "react"
 import {CreateWalletForm as Form} from "./create-wallet-form"
 
-export function CreateWallet({children}: {children: ReactNode}) {
+type Props = {
+  children: ReactNode
+}
+
+export function CreateWallet({children}: Props) {
   const [seed, setSeed] = useState("")
 
   return seed ? (
