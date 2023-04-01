@@ -1,5 +1,5 @@
 import {useBalance} from "@nice-xrpl/react-xrpl"
-import {Number} from "./number"
+import {Number} from "../wallet-ui/Number"
 
 export const WalletBalance = () => {
   const balance = useBalance()

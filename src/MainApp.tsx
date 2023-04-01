@@ -1,6 +1,6 @@
-import {Wallet} from "./components/wallet"
+import {Wallet} from "./components/Wallet"
 import {useWalletContext} from "./components/create-wallet/useWalletContext"
-import {AddWallet} from "./components/wallet-ui/add-wallet"
+import {AddWallet} from "./components/wallet-ui/AddWallet"
 import {Connected} from "./components/connected"
 
 export const MainApp = () => {

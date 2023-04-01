@@ -1,6 +1,7 @@
-import {TransactionsWallet} from "./transactions-wallet"
-import {Wrapper} from "./wallet-ui/wrapper"
 import {Wallet as WalletXRPL} from "@nice-xrpl/react-xrpl"
+import {TransactionsWallet} from "./transactions-wallet"
+import {Wrapper} from "./wallet-ui/Wrapper"
+
 import {useState} from "react"
 import {Form as FormCreateWallet} from "./create-wallet/Form"
 

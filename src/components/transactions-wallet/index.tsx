@@ -1,7 +1,7 @@
-import {SendXRP} from "./wallet-ui/send-xrp"
-import {WalletBalance} from "./wallet-ui/wallet-balance"
-import {WalletAddress} from "./wallet-ui/wallet-address"
-import {Header} from "./wallet-ui/header"
+import {SendXRP} from "./send-xrp"
+import {WalletBalance} from "./WalletBalance"
+import {WalletAddress} from "./WalletAddress"
+import {Header} from "./Header"
 
 type Props = {
   id: string

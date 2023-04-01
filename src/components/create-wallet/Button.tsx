@@ -1,4 +1,4 @@
-import {Number} from "../wallet-ui/number"
+import {Number} from "../wallet-ui/Number"
 type Props = {
   amount: number
 }

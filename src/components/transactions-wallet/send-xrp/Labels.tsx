@@ -1,4 +1,4 @@
-import {Number} from "../number"
+import {Number} from "../../wallet-ui/Number"
 
 export const Labels = ({
   id,
