@@ -1,12 +1,12 @@
 import {useCreateWallet} from "@nice-xrpl/react-xrpl"
 import {useState, FormEvent, ChangeEvent} from "react"
-import {Number} from "./wallet-ui/number"
+import {Number} from "../wallet-ui/number"
 
 type Props = {
   setSeed: (seed: string) => void
 }
 
-export function CreateWalletForm({setSeed}: Props) {
+export function Form({setSeed}: Props) {
   const min = 1_000
   const max = 1_000_000
   const step = 1_000

@@ -1,4 +1,5 @@
 import {useState} from "react"
+
 export const useWallets = (maxWallet: number) => {
   const MAX_WALLETS = maxWallet
   const MIN_WALLETS = 2

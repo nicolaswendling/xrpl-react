@@ -3,7 +3,11 @@ import {WalletBalance} from "./wallet-ui/wallet-balance"
 import {WalletAddress} from "./wallet-ui/wallet-address"
 import {Header} from "./wallet-ui/header"
 
-export function TransactionsWallet({id}: {id: string}) {
+type Props = {
+  id: string
+}
+
+export function TransactionsWallet({id}: Props) {
   return (
     <>
       <Header>
