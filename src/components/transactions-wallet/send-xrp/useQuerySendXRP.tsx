@@ -38,11 +38,11 @@ export const useQuerySendXRP = () => {
     try {
       const transaction = (await sendXRP(address, amount)) as SendXRPReturnProps
       const {Fee: feesInDrops, Amount: amountInDrops} = transaction.result
-      setSendingStatus(false)
       alert(buildMessage(amountInDrops, feesInDrops))
     } catch (error) {
       alert(error)
     } finally {
+      setSendingStatus(false)
       setAmount(0)
     }
   }
