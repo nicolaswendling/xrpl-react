@@ -32,6 +32,7 @@ export function Form({setSeed}: Props) {
 
     setSendingStatus(true)
     const initialState = await createWallet(amount.toString())
+
     if (initialState.wallet.seed) {
       validateWalletCreated()
       setSeed(initialState.wallet.seed)

@@ -13,7 +13,9 @@ export const MainApp = () => {
           <Wallet key={`wallet_${index}`} id={`wallet_${index}`} />
         ))}
       </div>
-      <AddWallet disabled={authCreateWallet()} onClick={addWallet} />
+      {!authCreateWallet() && (
+        <AddWallet disabled={authCreateWallet()} onClick={addWallet} />
+      )}
       <Connected />
     </main>
   )
