@@ -1,11 +1,20 @@
-import {useState} from "react"
+import {useState, useEffect} from "react"
 
-export const useWallets = (maxWallet: number) => {
-  const MAX_WALLETS = maxWallet
+export const useCreateWallets = () => {
+  const MAX_WALLETS = 4
   const MIN_WALLETS = 2
   const [wallets, setWallets] = useState(MIN_WALLETS)
+  const [createdWallets, setCreatedWallets] = useState(0)
 
-  const isDisabled = () => wallets >= MAX_WALLETS || wallets <= MIN_WALLETS
+  const validateWalletCreated = () => {
+    setCreatedWallets((current) => {
+      const newValue = current + 1
+      return newValue
+    })
+  }
+
+  const authCreateWallet = () =>
+    wallets >= MAX_WALLETS || createdWallets < wallets
 
   const addWallet = () => {
     if (wallets >= MAX_WALLETS)
@@ -14,8 +23,10 @@ export const useWallets = (maxWallet: number) => {
   }
 
   return {
-    isDisabled,
+    authCreateWallet,
     wallets,
     addWallet,
+    createdWallets,
+    validateWalletCreated,
   }
 }
