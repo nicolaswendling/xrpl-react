@@ -15,7 +15,7 @@ export const WalletContext = createContext<WalletContextType | undefined>(
 )
 
 export const WalletProvider = ({children}: PropsWithChildren) => {
-  const MAX_WALLETS = 4
+  const MAX_WALLETS = 5
   const MIN_WALLETS = 2
   const [wallets, setWallets] = useState(MIN_WALLETS)
   const [createdWallets, setCreatedWallets] = useState(0)
