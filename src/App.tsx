@@ -1,7 +1,7 @@
 import {Networks, XRPLClient} from "@nice-xrpl/react-xrpl"
 import {MainApp} from "./MainApp"
-import {XRPHeader} from "./components/page-ui/xrp-header"
-import {XRPFooter} from "./components/page-ui/xrp-footer"
+import {XRPHeader} from "./components/page/Header"
+import {XRPFooter} from "./components/page/Footer"
 import {WalletProvider} from "./components/create-wallet/WalletContext"
 
 const App = () => {
