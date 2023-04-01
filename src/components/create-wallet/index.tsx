@@ -1,6 +1,6 @@
 import {Wallet} from "@nice-xrpl/react-xrpl"
 import {useState, ReactNode} from "react"
-import {CreateWalletForm as Form} from "./create-wallet-form"
+import {Form} from "./Form"
 
 type Props = {
   children: ReactNode

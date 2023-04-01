@@ -1,5 +1,5 @@
 import {Wallet} from "./components/wallet"
-import {useWallets} from "./components/use-wallets"
+import {useWallets} from "./components/create-wallet/useCreateWallet"
 import {AddWallet} from "./components/wallet-ui/add-wallet"
 import {Connected} from "./components/connected"
 
