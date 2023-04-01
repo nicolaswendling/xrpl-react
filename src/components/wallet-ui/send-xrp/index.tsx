@@ -11,18 +11,18 @@ export const SendXRP = ({id}: {id: string}) => {
     amount,
     maxAmount,
     setAmount,
-    destinationAddress,
-    setDestinationAddress,
-    handlerOnSubmit,
-    sending,
-    isDisabled,
+    address,
+    setAddress,
+    submitQuery,
+    sendingStatus,
+    formStatus,
   } = useSendXRP()
 
   return (
     <>
-      <Labels id={id} amount={amount} destinationAddress={destinationAddress} />
-      <form onSubmit={handlerOnSubmit}>
-        <fieldset disabled={sending}>
+      <Labels id={id} amount={amount} address={address} />
+      <form onSubmit={submitQuery}>
+        <fieldset disabled={sendingStatus}>
           <div className="flex gap-px p-2 mb-2 rounded-md bg-slate-300 text-blue-50">
             <InputAmount
               max={maxAmount}
@@ -30,17 +30,13 @@ export const SendXRP = ({id}: {id: string}) => {
               setAmount={setAmount}
               id={id}
             />
-            <InputAddress
-              id={id}
-              address={destinationAddress}
-              setAddress={setDestinationAddress}
-            />
-            <Button disabled={isDisabled()} />
+            <InputAddress id={id} address={address} setAddress={setAddress} />
+            <Button disabled={formStatus()} />
           </div>
           <InputRange max={maxAmount} amount={amount} setAmount={setAmount} />
         </fieldset>
       </form>
-      {sending && <Loading />}
+      {sendingStatus && <Loading />}
     </>
   )
 }

@@ -14,12 +14,7 @@ type SendXRPReturnProps = {
 }
 
 type QuerySendXRPProps = {
-  balance: number
-  maxAmount: number
-  RESERVE_REQUIREMENT: number
   amount: number
   address: string
-  setSending: (sending: boolean) => void
   setAmount: (amount: number) => void
-  sendXRP: SendXrpProps
 }

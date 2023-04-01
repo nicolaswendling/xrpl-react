@@ -1,49 +1,53 @@
-import {FormEvent, useState} from "react"
+import {FormEvent, useState, useEffect} from "react"
 import {useQuerySendXRP} from "./useQuerySendXRP"
 import {
   useBalance,
-  useSendXRP as useSendXRPL,
   ReserveRequirement as RESERVE_REQUIREMENT,
 } from "@nice-xrpl/react-xrpl"
 
 export const useSendXRP = () => {
-  const requestSendXRP = useQuerySendXRP()
-  const sendXRP = useSendXRPL() as SendXrpProps
-
+  const {querySendXRP, sendingStatus} = useQuerySendXRP()
   const balance = useBalance()
 
-  const [destinationAddress, setDestinationAddress] = useState("")
   const [amount, setAmount] = useState(0)
-  const [sending, setSending] = useState(false)
-  const [maxAmount] = useState(balance - RESERVE_REQUIREMENT)
+  const [maxAmount, setMaxAmount] = useState(balance - RESERVE_REQUIREMENT)
+  const [address, setAddress] = useState("")
 
-  const isDisabled = () =>
-    !amount || amount >= maxAmount || !destinationAddress || sending
+  const formStatus = () =>
+    !amount || amount >= maxAmount || !address || sendingStatus
 
-  const handlerOnSubmit = async (event: FormEvent) => {
+  const submitQuery = async (event: FormEvent) => {
     event.preventDefault()
-    requestSendXRP({
-      balance,
-      maxAmount,
-      RESERVE_REQUIREMENT,
+
+    if (address === "") {
+      return alert("Please fill the wallet address")
+    }
+
+    if (amount >= maxAmount) {
+      return alert("Not enough XRP")
+    }
+
+    querySendXRP({
       amount,
-      address: destinationAddress,
-      setSending,
+      address,
       setAmount,
-      sendXRP,
     })
   }
 
+  useEffect(() => {
+    setMaxAmount(balance - RESERVE_REQUIREMENT)
+  }, [balance])
+
   return {
-    isDisabled,
+    formStatus,
     balance,
     maxAmount,
     amount,
-    sending,
+    sendingStatus,
     setAmount,
-    destinationAddress,
-    setDestinationAddress,
-    handlerOnSubmit,
+    address,
+    setAddress,
+    submitQuery,
     RESERVE_REQUIREMENT,
   }
 }

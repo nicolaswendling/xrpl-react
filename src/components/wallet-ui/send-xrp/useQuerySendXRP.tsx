@@ -1,60 +1,50 @@
-import React from "react"
+import {useState} from "react"
+import {
+  useSendXRP as useSendXRPL,
+  ReserveRequirement as RESERVE_REQUIREMENT,
+} from "@nice-xrpl/react-xrpl"
 
-const querySendXRP = async ({
-  RESERVE_REQUIREMENT,
-  maxAmount,
-  amount,
-  address,
-  setSending,
-  setAmount,
-  sendXRP,
-}: QuerySendXRPProps) => {
-  if (address === "") {
-    return alert("Please fill the wallet address")
-  }
-
-  if (amount >= maxAmount) {
-    return alert("Not enough XRP")
-  }
-
-  setSending(true)
-
-  try {
-    const transaction = (await sendXRP(address, amount)) as SendXRPReturnProps
-
-    const {Fee: feesInDrops, Amount: amountInDrops} = transaction.result
-    alert(buildMessage(amountInDrops, feesInDrops, RESERVE_REQUIREMENT))
-  } catch (error) {
-    alert(error)
-  } finally {
-    setSending(false)
-    setAmount(0)
-  }
-}
-
-const buildMessage = (
-  amountInDrops: string,
-  feesInDrops: string,
-  RESERVE_REQUIREMENT: number
-) => {
+const buildMessage = (amountInDrops: string, feesInDrops: string) => {
   const dropsToXRP = new Intl.NumberFormat("en-US").format(
     +amountInDrops / 1_000_000
   )
   const feesInXRP = +feesInDrops / 1_000_000
 
   const message = `
-          ------------------------
-          Successfully sent !
-          ------------------------
-          - Amount: ${dropsToXRP} XRP
-          - Fee: ${feesInDrops} Drops / ${feesInXRP} XRP
-          ------------------------
-          Wallet Requirement: ${RESERVE_REQUIREMENT} XRP
-          `
+      ------------------------
+      Successfully sent !
+      ------------------------
+      - Amount: ${dropsToXRP} XRP
+      - Fee: ${feesInDrops} Drops / ${feesInXRP} XRP
+      ------------------------
+      Wallet Requirement: ${RESERVE_REQUIREMENT} XRP
+      `
 
   return message
 }
 
 export const useQuerySendXRP = () => {
-  return querySendXRP
+  const sendXRP = useSendXRPL() as SendXrpProps
+  const [sendingStatus, setSendingStatus] = useState(false)
+
+  const querySendXRP = async ({
+    amount,
+    address,
+    setAmount,
+  }: QuerySendXRPProps) => {
+    setSendingStatus(true)
+
+    try {
+      const transaction = (await sendXRP(address, amount)) as SendXRPReturnProps
+      const {Fee: feesInDrops, Amount: amountInDrops} = transaction.result
+      setSendingStatus(false)
+      alert(buildMessage(amountInDrops, feesInDrops))
+    } catch (error) {
+      alert(error)
+    } finally {
+      setAmount(0)
+    }
+  }
+
+  return {querySendXRP, sendingStatus}
 }

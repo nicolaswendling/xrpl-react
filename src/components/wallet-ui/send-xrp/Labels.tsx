@@ -2,28 +2,26 @@ import {Number} from "../number"
 
 export const Labels = ({
   id,
-  destinationAddress,
+  address,
   amount,
 }: {
   id: string
-  destinationAddress: string
+  address: string
   amount: number
 }) => {
   return (
     <div className="mt-4 text-center">
-      <label className="" htmlFor={`amount_${id}`}>
+      <label htmlFor={`amount_${id}`}>
         Send{" "}
         <strong className="font-mono text-blue-600">
           <Number value={amount} /> XRP
         </strong>
       </label>
       &nbsp;
-      <label htmlFor={`destinationAddress_${id}`} className="">
+      <label htmlFor={`destination_address_${id}`}>
         to{" "}
-        {destinationAddress ? (
-          <strong className="text-base text-blue-600">
-            {destinationAddress}
-          </strong>
+        {address ? (
+          <strong className="text-base text-blue-600">{address}</strong>
         ) : (
           "fill the wallet address"
         )}

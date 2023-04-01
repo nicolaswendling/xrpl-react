@@ -5,9 +5,12 @@ export const WalletAddress = () => {
 
   return (
     <div className="flex items-center gap-2 p-2 mb-2 rounded-md bg-slate-300">
-      <span className="font-bold">Address:</span>
+      <label htmlFor={address} className="font-bold">
+        Address:
+      </label>
       <div className="flex flex-1 gap-px">
         <input
+          id={address}
           className="w-full p-4 text-blue-950 rounded-l-md"
           defaultValue={address}
           type="text"
