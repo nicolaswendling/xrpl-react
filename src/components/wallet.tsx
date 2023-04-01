@@ -1,13 +1,20 @@
-import {CreateWallet} from "./create-wallet"
 import {TransactionsWallet} from "./transactions-wallet"
 import {Wrapper} from "./wallet-ui/wrapper"
+import {Wallet as WalletXRPL} from "@nice-xrpl/react-xrpl"
+import {useState} from "react"
+import {Form as FormCreateWallet} from "./create-wallet/Form"
 
 export const Wallet = ({id}: {id: string}) => {
+  const [seed, setSeed] = useState("")
   return (
     <Wrapper>
-      <CreateWallet>
-        <TransactionsWallet id={id} />
-      </CreateWallet>
+      {seed ? (
+        <WalletXRPL seed={seed}>
+          <TransactionsWallet id={id} />
+        </WalletXRPL>
+      ) : (
+        <FormCreateWallet setSeed={setSeed} />
+      )}
     </Wrapper>
   )
 }
