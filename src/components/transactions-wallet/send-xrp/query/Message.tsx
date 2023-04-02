@@ -18,19 +18,22 @@ export const Message = ({
     <>
       <p className="text-lg leading-7">
         You have sent{" "}
-        <span className="p-1 text-base text-white bg-blue-800 rounded-sm">
+        <span className="p-1 text-base text-white bg-blue-900 rounded-md">
           {dropsToXRP} XRP
         </span>{" "}
-        in{" "}
-        <span className="p-1 text-base text-white bg-blue-800 rounded-sm">
-          {(elapsedTime / 1000).toFixed(2)} seconds
+      </p>
+      <p className="mt-2 text-lg leading-7">
+        Transaction done in{" "}
+        <span className="p-1 text-base text-white bg-blue-900 rounded-md">
+          {(elapsedTime / 1000).toFixed(2)} sec
         </span>
       </p>
       <p className="mt-2 text-lg leading-7">
-        Fees only {feesInDrops} drops&nbsp;=&nbsp;
-        <span className="p-1 text-base text-white bg-blue-800 rounded-sm">
+        Fees was only&nbsp;
+        <span className="p-1 text-base text-white bg-blue-900 rounded-md">
           {feesInXRP} XRP
         </span>
+        &nbsp; ({feesInDrops} drops)
       </p>
     </>
   )
