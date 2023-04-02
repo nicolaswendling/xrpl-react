@@ -20,17 +20,17 @@ const Message = ({amountInDrops, feesInDrops, elapsedTime}: MessageProps) => {
       <p className="text-lg leading-7">
         You have sent{" "}
         <span className="p-1 text-base text-white bg-blue-600 rounded-sm">
-          ${dropsToXRP} XRP
+          {dropsToXRP} XRP
         </span>{" "}
         in{" "}
         <span className="p-1 text-base text-white bg-blue-600 rounded-sm">
-          ${elapsedTime / 1000} seconds
+          {(elapsedTime / 1000).toFixed(2)} seconds
         </span>
       </p>
       <p className="mt-2 text-lg leading-7">
-        Fees only ${feesInDrops} drops&nbsp;=&nbsp;
+        Fees only {feesInDrops} drops&nbsp;=&nbsp;
         <span className="p-1 text-base text-white bg-blue-600 rounded-sm">
-          ${feesInXRP} XRP
+          {feesInXRP} XRP
         </span>
       </p>
     </>
