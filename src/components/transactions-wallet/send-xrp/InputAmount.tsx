@@ -17,7 +17,7 @@ export const InputAmount = ({max, amount, setAmount, id}: Props) => {
   return (
     <input
       id={`amount_${id}`}
-      className="p-4 text-blue-950 rounded-l-md  w-full max-w-[200px]"
+      className="p-4 text-blue-950 md:rounded-l-md w-full md:max-w-[200px]"
       value={amount}
       onChange={(event) => {
         handlerOnChange(event.target.value)
