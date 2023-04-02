@@ -3,6 +3,7 @@ import {MainApp} from "./MainApp"
 import {XRPHeader} from "./components/page/Header"
 import {XRPFooter} from "./components/page/Footer"
 import {WalletProvider} from "./components/create-wallet/WalletContext"
+import {Dialog} from "./components/dialog/Dialog"
 
 const App = () => {
   return (
@@ -11,6 +12,7 @@ const App = () => {
       <XRPLClient network={Networks.Testnet}>
         <WalletProvider>
           <MainApp />
+          <Dialog />
         </WalletProvider>
       </XRPLClient>
       <XRPFooter />

@@ -4,7 +4,7 @@ export const InputRange = ({amount, min, max, step, onChange}: InputProps) => {
   return (
     <input
       type="range"
-      className="w-full"
+      className="block w-full mt-4"
       min={min}
       max={max}
       step={step}

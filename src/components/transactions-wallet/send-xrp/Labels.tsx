@@ -10,10 +10,10 @@ export const Labels = ({
   amount: number
 }) => {
   return (
-    <div className="mt-4 text-center">
+    <div className="mt-4 mb-2 font-sans text-center">
       <label htmlFor={`amount_${id}`}>
         Send{" "}
-        <strong className="font-mono text-blue-600">
+        <strong className="text-blue-600">
           <Number value={amount} /> XRP
         </strong>
       </label>
