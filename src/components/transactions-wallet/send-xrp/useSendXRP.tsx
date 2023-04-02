@@ -1,5 +1,5 @@
 import {FormEvent, useState, useEffect} from "react"
-import {useQuerySendXRP} from "./useQuerySendXRP"
+import {useQuerySendXRP} from "./query/useQuerySendXRP"
 import {useDialogContext} from "../../dialog/useDialogContext"
 import {
   useBalance,

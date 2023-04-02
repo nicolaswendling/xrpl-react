@@ -13,7 +13,7 @@ export const Modal = ({handleCloseModal, title, children}: ModalProps) => {
     >
       <div className="flex flex-col w-full max-w-xl overflow-hidden px-4 bg-white bg-gradient-to-tl from-slate-300 min-h-[350px] rounded-md">
         <header className="p-8 text-center">
-          <h2 className="text-2xl font-bold leading-none text-blue-600">
+          <h2 className="text-2xl font-bold leading-none text-blue-800">
             {title}
           </h2>
         </header>
