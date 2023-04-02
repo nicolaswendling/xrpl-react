@@ -1,9 +1,11 @@
-import React from "react"
+type Props = {
+  value: number
+}
 
-export const Loading = () => {
+export const Loading = ({value}: Props) => {
   return (
-    <div className="w-full p-4 text-center text-white transition-colors duration-300 rounded-md bg-blue-950">
-      <span className=" animate-pulse">Creating wallet</span>
+    <div className="flex items-center justify-center w-full h-full p-4 text-xl text-white transition-colors duration-300 rounded-md bg-blue-950">
+      <span className="animate-pulse">Creating wallet of {value} XRP</span>
     </div>
   )
 }

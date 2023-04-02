@@ -23,7 +23,7 @@ export const SendXRP = ({id}: {id: string}) => {
       <Labels id={id} amount={amount} address={address} />
       <form onSubmit={submitQuery}>
         <fieldset disabled={sendingStatus}>
-          <div className="flex gap-px p-2 mb-2 rounded-md bg-slate-300 text-blue-50">
+          <div className="flex gap-px p-2 mb-2 bg-white rounded-md">
             <InputAmount
               max={maxAmount}
               amount={amount}

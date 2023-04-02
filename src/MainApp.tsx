@@ -7,7 +7,7 @@ export const MainApp = () => {
   const {wallets, authCreateWallet, addWallet} = useWalletContext()
 
   return (
-    <main className="font-mono">
+    <main className="font-sans">
       <div className="grid gap-4">
         {[...Array(wallets)].map((_, index) => (
           <Wallet key={`wallet_${index}`} id={`wallet_${index}`} />

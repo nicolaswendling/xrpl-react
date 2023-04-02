@@ -40,10 +40,12 @@ export function Form({setSeed}: Props) {
     setSendingStatus(false)
   }
 
-  return (
+  return sendingStatus ? (
+    <Loading value={amount} />
+  ) : (
     <form onSubmit={submitCreateWallet}>
       <fieldset disabled={sendingStatus}>
-        <div className="flex flex-col gap-2">
+        <div className="flex gap-px p-2 bg-white rounded-md">
           <InputNumber
             amount={amount}
             min={min}
@@ -51,15 +53,15 @@ export function Form({setSeed}: Props) {
             step={step}
             onChange={changeAmount}
           />
-          <InputRange
-            min={min}
-            max={max}
-            step={step}
-            amount={amount}
-            onChange={changeAmount}
-          />
-          {!sendingStatus ? <Button amount={amount} /> : <Loading />}
+          <Button amount={amount} />
         </div>
+        <InputRange
+          min={min}
+          max={max}
+          step={step}
+          amount={amount}
+          onChange={changeAmount}
+        />
       </fieldset>
     </form>
   )

@@ -1,6 +1,6 @@
 import {useState, createContext} from "react"
-
 import {PropsWithChildren} from "react"
+import {useDialogContext} from "../dialog/useDialogContext"
 
 type WalletContextType = {
   createdWallets: number
@@ -19,14 +19,20 @@ export const WalletProvider = ({children}: PropsWithChildren) => {
   const MIN_WALLETS = 2
   const [wallets, setWallets] = useState(MIN_WALLETS)
   const [createdWallets, setCreatedWallets] = useState(0)
+  const {openModal} = useDialogContext()
 
   const authCreateWallet = () =>
     wallets >= MAX_WALLETS || createdWallets < wallets
 
   const addWallet = () => {
-    if (wallets >= MAX_WALLETS)
-      return alert(`You can only have ${MAX_WALLETS} wallets at a time`)
-    setWallets((current) => current + 1)
+    if (wallets >= MAX_WALLETS) {
+      openModal({
+        title: "Error",
+        message: `You can only have ${MAX_WALLETS} wallets at a time`,
+      })
+    } else {
+      setWallets((current) => current + 1)
+    }
   }
 
   const validateWalletCreated = () => {

@@ -1,11 +1,13 @@
 import {FormEvent, useState, useEffect} from "react"
 import {useQuerySendXRP} from "./useQuerySendXRP"
+import {useDialogContext} from "../../dialog/useDialogContext"
 import {
   useBalance,
   ReserveRequirement as RESERVE_REQUIREMENT,
 } from "@nice-xrpl/react-xrpl"
 
 export const useSendXRP = () => {
+  const {openModal} = useDialogContext()
   const {querySendXRP, sendingStatus} = useQuerySendXRP()
   const balance = useBalance()
 
@@ -20,11 +22,17 @@ export const useSendXRP = () => {
     event.preventDefault()
 
     if (address === "") {
-      return alert("Please fill the wallet address")
+      return openModal({
+        title: "Error",
+        message: "Please fill the wallet address",
+      })
     }
 
     if (amount >= maxAmount) {
-      return alert("Not enough XRP")
+      return openModal({
+        title: "Error",
+        message: "Not enough XRP",
+      })
     }
 
     querySendXRP({
