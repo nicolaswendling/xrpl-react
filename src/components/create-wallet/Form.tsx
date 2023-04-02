@@ -5,6 +5,7 @@ import {Loading} from "./Loading"
 import {Button} from "./Button"
 import {InputNumber} from "./InputNumber"
 import {InputRange} from "./InputRange"
+import {WrapperForm} from "../wallet-ui/WrapperForm"
 
 type Props = {
   setSeed: (seed: string) => void
@@ -45,7 +46,7 @@ export function Form({setSeed}: Props) {
   ) : (
     <form onSubmit={submitCreateWallet}>
       <fieldset disabled={sendingStatus}>
-        <div className="flex gap-px p-2 bg-white rounded-md">
+        <WrapperForm>
           <InputNumber
             amount={amount}
             min={min}
@@ -54,7 +55,7 @@ export function Form({setSeed}: Props) {
             onChange={changeAmount}
           />
           <Button amount={amount} />
-        </div>
+        </WrapperForm>
         <InputRange
           min={min}
           max={max}

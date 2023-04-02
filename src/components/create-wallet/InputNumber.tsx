@@ -9,7 +9,7 @@ export const InputNumber = ({amount, min, max, step, onChange}: InputProps) => {
       step={step}
       value={amount}
       onChange={onChange}
-      className="w-full p-4 rounded-l-md"
+      className="w-full p-4 md:rounded-l-md"
     />
   )
 }
