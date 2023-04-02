@@ -20,7 +20,7 @@ export const useQuerySendXRP = () => {
       const {Fee: feesInDrops, Amount: amountInDrops} = transaction.result
 
       const elapsedTime = timeTransaction.elapsedTime()
-      const title = "Sent successfully!"
+      const title = "Successfully sent!"
       const message = (
         <Message
           amountInDrops={amountInDrops}

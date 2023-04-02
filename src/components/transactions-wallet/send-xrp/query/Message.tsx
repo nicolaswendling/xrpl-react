@@ -23,13 +23,13 @@ export const Message = ({
         </span>{" "}
       </p>
       <p className="mt-2 text-lg leading-7">
-        Transaction done in{" "}
+        Transaction completed in{" "}
         <span className="p-1 text-base text-white bg-blue-900 rounded-md">
           {(elapsedTime / 1000).toFixed(2)} sec
         </span>
       </p>
       <p className="mt-2 text-lg leading-7">
-        Fees was only&nbsp;
+        The fee was only&nbsp;
         <span className="p-1 text-base text-white bg-blue-900 rounded-md">
           {feesInXRP} XRP
         </span>

@@ -26,7 +26,7 @@ export const Modal = ({handleCloseModal, title, children}: ModalProps) => {
             id="closeModal"
             className="px-8 py-2 transition-colors bg-blue-600 rounded-md text-blue-50 hover:bg-blue-900"
           >
-            Fermer
+            Close
           </button>
         </footer>
       </div>
