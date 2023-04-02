@@ -18,7 +18,7 @@ export const WalletAddress = () => {
           onClick={async () => {
             await navigator.clipboard.writeText(address)
             setCopied(true)
-            setTimeout(() => setCopied(false), 1000)
+            setTimeout(() => setCopied(false), 1500)
           }}
         >
           {copied ? "Copied" : "Copy"}
