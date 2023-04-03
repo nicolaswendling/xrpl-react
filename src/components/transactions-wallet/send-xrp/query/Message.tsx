@@ -29,7 +29,7 @@ export const Message = ({
         </span>
       </p>
       <p className="mt-2 text-lg leading-7">
-        The fee was only&nbsp;
+        Transaction fees charged:&nbsp;
         <span className="p-1 text-base text-white bg-blue-900 rounded-md">
           {feesInXRP} XRP
         </span>
