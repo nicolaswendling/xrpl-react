@@ -9,7 +9,7 @@ export const Connected = () => {
       {!isConnected ? (
         <span className="inline-flex flex-shrink-0 p-2 rounded-full bg-slate-700"></span>
       ) : (
-        <span className="inline-flex flex-shrink-0 p-2 bg-blue-600 rounded-full"></span>
+        <span className="inline-flex flex-shrink-0 p-2 rounded-full bg-amber-300"></span>
       )}
     </div>
   )
