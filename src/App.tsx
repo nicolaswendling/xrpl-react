@@ -10,7 +10,7 @@ const App = () => {
   return (
     <>
       <XRPHeader />
-      <XRPLClient network={Networks.Testnet}>
+      <XRPLClient network={Networks.Devnet}>
         <DialogProvider>
           <WalletProvider>
             <MainApp />
