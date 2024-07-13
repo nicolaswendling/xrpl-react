@@ -12,9 +12,9 @@ type Props = {
 }
 
 export function Form({setSeed}: Props) {
-  const min = 1_000
-  const max = 1_000_000
-  const step = 1_000
+  const min = 1_00
+  const max = 1_000
+  const step = 1
 
   const [sendingStatus, setSendingStatus] = useState(false)
   const [amount, setAmount] = useState(min)
