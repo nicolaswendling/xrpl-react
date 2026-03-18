@@ -6,7 +6,7 @@ export const WalletBalance = () => {
 
   return (
     <span>
-      <Number value={balance} /> XRP
+      <Number value={parseFloat(balance)} /> XRP
     </span>
   )
 }

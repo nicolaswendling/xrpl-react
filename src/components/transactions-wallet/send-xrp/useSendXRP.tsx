@@ -12,7 +12,7 @@ export const useSendXRP = () => {
   const balance = useBalance()
 
   const [amount, setAmount] = useState(0)
-  const [maxAmount, setMaxAmount] = useState(balance - RESERVE_REQUIREMENT)
+  const [maxAmount, setMaxAmount] = useState(Number(balance) - RESERVE_REQUIREMENT)
   const [address, setAddress] = useState("")
 
   const formStatus = () =>
@@ -43,7 +43,7 @@ export const useSendXRP = () => {
   }
 
   useEffect(() => {
-    setMaxAmount(balance - RESERVE_REQUIREMENT)
+    setMaxAmount(Number(balance) - RESERVE_REQUIREMENT)
   }, [balance])
 
   return {

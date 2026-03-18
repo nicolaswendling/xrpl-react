@@ -1,4 +1,4 @@
-import {useCreateWallet as useCreateWalletXRPL} from "@nice-xrpl/react-xrpl"
+import {useCreateAndFundWallet as useCreateWalletXRPL} from "@nice-xrpl/react-xrpl"
 import {useState, FormEvent, ChangeEvent} from "react"
 import {useWalletContext} from "./useWalletContext"
 import {Loading} from "./Loading"
@@ -34,9 +34,9 @@ export function Form({setSeed}: Props) {
     setSendingStatus(true)
     const initialState = await createWallet(amount.toString())
 
-    if (initialState.wallet.seed) {
+    if (initialState.seed) {
       validateWalletCreated()
-      setSeed(initialState.wallet.seed)
+      setSeed(initialState.seed)
     }
     setSendingStatus(false)
   }

@@ -1,6 +1,5 @@
 import {defineConfig} from "vite"
 import react from "@vitejs/plugin-react"
-import {NodeGlobalsPolyfillPlugin} from "@esbuild-plugins/node-globals-polyfill"
 import polyfillNode from "rollup-plugin-polyfill-node"
 
 // https://vitejs.dev/config/
@@ -8,18 +7,13 @@ export default defineConfig({
   plugins: [react()],
   define: {
     "process.env": {},
+    global: "globalThis",
   },
   optimizeDeps: {
-    esbuildOptions: {
+    rolldownOptions: {
       define: {
         global: "globalThis",
       },
-      plugins: [
-        NodeGlobalsPolyfillPlugin({
-          process: true,
-          buffer: true,
-        }),
-      ],
     },
   },
   build: {
@@ -28,6 +22,7 @@ export default defineConfig({
     },
   },
   resolve: {
+    dedupe: ["react", "react-dom"],
     alias: {
       events: "events",
       crypto: "crypto-browserify",
