@@ -8,6 +8,14 @@ This is a proof of concept for a React/TypeScript application utilizing the XRPL
 
 --
 
+## Stack
+
+- React 18 + TypeScript
+- Vite 8 (Rolldown)
+- Tailwind CSS 4
+- @nice-xrpl/react-xrpl 4
+- Node.js 24
+
 ## Issues Encountered
 
 Encountering issues on Testnet: `WebSocket connection to 'wss://s.altnet.rippletest.net:51233/' failed`
